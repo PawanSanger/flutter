@@ -1,0 +1,88 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+            debugShowCheckedModeBanner: false,
+
+     title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 24, 170, 180),
+        ),
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page by Pawan ji'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    var arr1=["pawan","rahul","amit","Sumit"];
+    List<int>arr2=[9896,9895,9098,38097];
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text("Flutter Container"),
+      ),
+
+      body:
+          // ignore: sized_box_for_whitespace
+          Container(
+            height: 270,
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.separated(
+                    itemCount: arr1.length,
+                    itemBuilder:(context,index){
+                    return ListTile(
+                      leading: Text("${index+1}"),
+                      title: Text(arr1[index]),
+                      subtitle: Text("${arr2[index]}"),
+                      trailing: Icon(Icons.add),
+                    );
+                  },
+                  separatorBuilder: (context,index){
+                    return Divider(
+                      height: 2,
+                      color:Colors.blue,
+
+                    );
+                    
+                  },
+            
+                  
+                  )
+                  ,
+                ),
+                 Divider(
+                height: 2,
+                color:Colors.blue,
+                
+              )
+              ],
+            ),
+          ),
+          
+          
+    );
+  }
+}

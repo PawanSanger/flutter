@@ -32,6 +32,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  callback(){
+    print("Clicked!!!");
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,9 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       body: ElevatedButton(
-        onPressed: () {
-          print("Clicked");
-        },
+        onPressed: callback,
         child: Text("Click me"),
       ),
     );
